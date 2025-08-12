@@ -30,6 +30,12 @@
 
   const questions = parseQuestionsFromMarkdown(md);
   let results = null;
+  let answers = new Map();
+  
+  function selectOption(questionNum, value) {
+    answers.set(questionNum, value);
+    answers = answers; // trigger reactivity
+  }
 
   function reverseScore(value) {
     switch (value) {
@@ -81,22 +87,54 @@
 
   <form class="card" on:submit|preventDefault={handleSubmit}>
     <div class="legend">
-      <span>1: Never/rarely true</span>
-      <span>5: Very often/always true</span>
+      <h3>Instructions</h3>
+      <p>Please rate each statement according to how frequently or how true it is of you. Use the following scale:</p>
+      <div class="scale-legend">
+        <div class="scale-item">
+          <span class="scale-value">1</span>
+          <span class="scale-label">Never or very rarely true</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-value">2</span>
+          <span class="scale-label">Rarely true</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-value">3</span>
+          <span class="scale-label">Sometimes true</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-value">4</span>
+          <span class="scale-label">Often true</span>
+        </div>
+        <div class="scale-item">
+          <span class="scale-value">5</span>
+          <span class="scale-label">Very often or always true</span>
+        </div>
+      </div>
     </div>
 
     <div class="questions">
       {#each questions as { num, statement }}
         <fieldset class="question" aria-labelledby={`q${num}-label`}>
           <div class="q-head">
-            <div class="q-num">#{num}</div>
+            <div class="q-num">Question {num}</div>
             <p class="q-text" id={`q${num}-label`}>{statement}</p>
           </div>
           <div class="q-options">
             {#each [1,2,3,4,5] as v}
-              <label class="option">
-                <input type="radio" name={`q${num}`} value={v} required />
-                <span>{v}</span>
+              {@const scaleLabels = ['Never or very rarely true', 'Rarely true', 'Sometimes true', 'Often true', 'Very often or always true']}
+              {@const isSelected = answers.get(num) === v}
+              <label class="option {isSelected ? 'selected' : ''}" on:click={() => selectOption(num, v)}>
+                <input 
+                  type="radio" 
+                  name={`q${num}`} 
+                  value={v} 
+                  required 
+                  checked={answers.get(num) === v}
+                  on:change={() => selectOption(num, v)}
+                />
+                <span class="scale-value">{v}</span>
+                <span class="scale-label">{scaleLabels[v-1]}</span>
               </label>
             {/each}
           </div>

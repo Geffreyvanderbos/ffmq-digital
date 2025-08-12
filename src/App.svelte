@@ -1,7 +1,7 @@
 <script>
   import md from '../ffmq.md?raw';
 
-  const REVERSE_ITEMS = new Set([3, 10, 12, 14, 16, 17, 18, 23, 25, 28, 30, 34, 35, 38, 39]);
+  const REVERSE_ITEMS = new Set([12, 22, 5, 8, 13, 18, 23, 28, 34, 38, 3, 10, 14, 17, 25, 30, 35, 39]);
   const FACETS = {
     Observing: [1, 6, 11, 15, 20, 26, 31, 36],
     Describing: [2, 7, 12, 16, 22, 27, 32, 37],
@@ -144,10 +144,6 @@
   {/if}
 
   <footer class="page-footer">
-    <p>
-      Scoring: Items <strong>3, 10, 12, 14, 16, 17, 18, 23, 25, 28, 30, 34, 35, 38, 39</strong> are reverse-scored.
-      Facets: Observing; Describing; Acting with Awareness; Nonjudging of Inner Experience; Nonreactivity to Inner Experience.
-    </p>
   </footer>
 </main>
 

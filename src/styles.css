@@ -42,13 +42,10 @@ body {
 
 .questions { display: flex; flex-direction: column; gap: 20px; }
 .question { 
-  border: 1px solid var(--border); 
+  border: 0; 
   border-radius: 16px; 
-  padding: 20px; 
-  background: rgba(18, 24, 51, 0.6);
-  transition: border-color 0.2s ease;
+  padding: 20px;
 }
-.question:hover { border-color: var(--accent); }
 .q-head { margin-bottom: 16px; }
 .q-num { 
   display: inline-block;

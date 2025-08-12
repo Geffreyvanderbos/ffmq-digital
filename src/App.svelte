@@ -1,7 +1,14 @@
 <script>
   import md from '../ffmq.md?raw';
 
-  const REVERSE_ITEMS = new Set([12, 22, 5, 8, 13, 18, 23, 28, 34, 38, 3, 10, 14, 17, 25, 30, 35, 39]);
+  // FFMQ-39 Scoring Rules:
+  // - Items are scored 1-5 (1=Never/rarely true, 5=Very often/always true)
+  // - Reverse-scored items (1→5, 2→4, 3→3, 4→2, 5→1): 3, 5, 8, 10, 12, 13, 14, 16, 17, 18, 22, 23, 25, 28, 30, 34, 35, 38, 39
+  // - Subscales: Observing, Describing, Acting with Awareness, Nonjudging, Nonreactivity
+  // - Total score = sum of all 39 items (after reverse scoring where applicable)
+  // - Minimum possible score: 39, Maximum possible score: 195
+  
+  const REVERSE_ITEMS = new Set([3, 5, 8, 10, 12, 13, 14, 16, 17, 18, 22, 23, 25, 28, 30, 34, 35, 38, 39]);
   const FACETS = {
     Observing: [1, 6, 11, 15, 20, 26, 31, 36],
     Describing: [2, 7, 12, 16, 22, 27, 32, 37],
@@ -41,6 +48,8 @@
   }
 
   function reverseScore(value) {
+    // For reverse-scored items: 1→5, 2→4, 3→3, 4→2, 5→1
+    // This ensures that higher mindfulness responses get higher scores
     switch (value) {
       case 1: return 5;
       case 2: return 4;
@@ -64,6 +73,7 @@
       answers.set(q.num, Number(raw));
     }
 
+    // Apply reverse scoring to specified items before calculating totals
     const adjusted = new Map();
     let total = 0;
     for (const [num, v] of answers.entries()) {
@@ -72,6 +82,7 @@
       total += adj;
     }
 
+    // Calculate subscale scores using the adjusted (reverse-scored) values
     const facetScores = {};
     for (const [facet, items] of Object.entries(FACETS)) {
       facetScores[facet] = items.reduce((sum, itemNum) => sum + (adjusted.get(itemNum) ?? 0), 0);
@@ -129,8 +140,14 @@
     <section class="results">
       <div class="card">
         <h3>Results</h3>
-        <p><strong>Total Score:</strong> {results.total}</p>
+        <p><strong>Total Score:</strong> {results.total} <span class="score-range">(Range: 39-195)</span></p>
         <p>Higher score = more developed mindfulness skills.</p>
+        <p class="score-interpretation">
+          <strong>Score Interpretation:</strong><br>
+          39-77: Low mindfulness<br>
+          78-116: Moderate mindfulness<br>
+          117-195: High mindfulness
+        </p>
         <div class="facet-scores">
           {#each Object.entries(results.facetScores) as [facet, score]}
             <div class="facet">

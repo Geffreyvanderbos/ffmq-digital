@@ -86,32 +86,6 @@
   </header>
 
   <form class="card" on:submit|preventDefault={handleSubmit}>
-    <div class="legend">
-      <h3>Instructions</h3>
-      <p>Please rate each statement according to how frequently or how true it is of you. Use the following scale:</p>
-      <div class="scale-legend">
-        <div class="scale-item">
-          <span class="scale-value">1</span>
-          <span class="scale-label">Never or very rarely true</span>
-        </div>
-        <div class="scale-item">
-          <span class="scale-value">2</span>
-          <span class="scale-label">Rarely true</span>
-        </div>
-        <div class="scale-item">
-          <span class="scale-value">3</span>
-          <span class="scale-label">Sometimes true</span>
-        </div>
-        <div class="scale-item">
-          <span class="scale-value">4</span>
-          <span class="scale-label">Often true</span>
-        </div>
-        <div class="scale-item">
-          <span class="scale-value">5</span>
-          <span class="scale-label">Very often or always true</span>
-        </div>
-      </div>
-    </div>
 
     <div class="questions">
       {#each questions as { num, statement }}

@@ -10,47 +10,7 @@
     'Nonreactivity to Inner Experience': [4, 9, 19, 21, 24, 29, 33]
   };
 
-  const DESCRIPTIONS = {
-    1: "Invites you to notice concrete bodily sensations (pressure, contact, temperature, muscle activation) while walking. Think heels and toes, joint angles, balance shifts, air on skin—staying with raw sensation rather than commentary.",
-    2: "Assesses emotional vocabulary and precision. Can you move beyond broad labels (good/bad) to nuanced terms (disappointed vs. sad vs. resigned) and articulate intensity, triggers, and context?",
-    3: "Probes secondary judgment about emotions—seeing them as irrational/inappropriate and criticizing yourself for having them. The intention is to detect a punitive stance toward inner experience.",
-    4: "Targets nonreactivity: perceiving feelings as transient events without needing to fix, suppress, or amplify them. Can you allow an urge or emotion to be present without immediately acting?",
-    5: "Measures acting-with-awareness versus autopilot. Mind wandering during tasks suggests reduced moment-to-moment contact with what you’re doing (sensations, intentions, and actions).",
-    6: "Checks sensory contact in everyday routines. Can you feel temperature, pressure, flow, and texture of water on the skin without drifting into thought?",
-    7: "Looks at the ability to translate inner beliefs/opinions into clear language—organizing experience into shareable, coherent statements.",
-    8: "Captures inattention caused by mental time-travel (worry, rumination, fantasy). The focus is on noticing when attention leaves the task and the body.",
-    9: "Assesses the capacity to witness feelings without fusing with them. You can notice sadness/anger as an experience occurring in awareness, not as your entire identity.",
-    10: "Surfaces judgment of emotion itself (meta-judgment). The intention is to see whether you label certain feelings as unacceptable and pressure yourself not to feel them.",
-    11: "Examines interoceptive and affective consequences of consumption. Do you notice shifts in energy, mood, clarity, tension, or heart rate after foods/drinks?",
-    12: "Measures difficulty putting thoughts into words—accessing and naming the content/quality of thinking (speed, imagery, verbal tone, certainty).",
-    13: "Screens distractibility—how easily attention is pulled from the intended object (task, breath, conversation) by internal or external stimuli.",
-    14: "Explores judgment about thoughts as morally/qualitatively bad. Do you relate to certain thoughts as unacceptable rather than as passing mental events?",
-    15: "Checks openness to subtle sensory input (wind, warmth, texture). It reflects a curious, receptive stance toward raw perception in daily life.",
-    16: "Assesses difficulty describing feelings under ordinary conditions—whether there’s a gap between felt experience and language generation.",
-    17: "Targets the reflex to evaluate thoughts as good/bad. The item taps the judging dimension rather than the content of specific thoughts.",
-    18: "Captures stability of attention in the present. Difficulty staying focused signals reduced awareness continuity and greater autopilot.",
-    19: "Measures decentering: the ability to ‘step back’ from distressing images/thoughts, seeing them as mental events that arise and pass without takeover.",
-    20: "Checks auditory mindfulness—discriminating layers of sound (near/far, loud/soft, continuous/intermittent) without narrating or evaluating.",
-    21: "Assesses response inhibition and emotional regulation: pausing in difficulty to allow wiser action rather than reflexive reaction.",
-    22: "Explores interoceptive language—can you identify and name bodily sensations (tightness, flutter, pressure, heat) with some specificity?",
-    23: "Screens behavioral autopilot—doing without noticing intentions, transitions, or sensations. Reflects low present-moment contact during routine behavior.",
-    24: "Targets recovery and nonreactivity after distressing mentation—how quickly equanimity returns once a difficult thought/image appears.",
-    25: "Assesses judgment about thinking itself—pressuring yourself not to have certain thoughts, which often amplifies distress and reduces acceptance.",
-    26: "Checks olfactory awareness—subtle noticing of aromas in ordinary contexts (food, outdoors, environments) without evaluation.",
-    27: "Measures access to language for emotion under load. Even when upset, can you label and communicate what you feel and need?",
-    28: "Captures speed-over-awareness tendency: rushing diminishes sensory contact and intentionality; mindfulness favors thorough, deliberate engagement.",
-    29: "Assesses the ability to allow distressing thoughts/images to be present while choosing nonreactive, values-guided behavior.",
-    30: "Surfaces moral/aesthetic judgment of emotions (good/bad). Mindfulness emphasizes accepting emotions as signals, not faults.",
-    31: "Checks visual mindfulness—rich noticing of color, line, texture, light/shadow in art/nature, indicating receptive perceptual detail.",
-    32: "Assesses narrative tendency—readiness to represent experience in words, building coherent meaning without losing contact with raw data.",
-    33: "Measures letting-go ability—recognizing thoughts/images and allowing them to pass without elaboration or struggle.",
-    34: "Screens automaticity in action—tasks completed with minimal awareness of steps, sensations, and intentions.",
-    35: "Explores self-evaluation tied to thought content. Do you judge yourself as good/bad because of having certain thoughts/images?",
-    36: "Assesses insight into how emotions bias cognition and behavior—tracking shifts in attention, memory, choices when emotions arise.",
-    37: "Checks emotional granularity and detail in the present moment—naming blends, intensities, and bodily correlates of feeling states.",
-    38: "Captures acting without awareness—only later realizing you’ve been on autopilot. Overlaps with attentional stability in daily tasks.",
-    39: "Targets disapproval toward having ‘irrational’ ideas—self-criticism for mental content rather than noticing it as transient activity."
-  };
+  // Descriptions are now stored in ffmq.md alongside each question
 
   function parseQuestionsFromMarkdown(markdownText) {
     const lines = markdownText.split(/\r?\n/);
@@ -64,8 +24,9 @@
       if (!Number.isInteger(maybeNumber)) continue;
       const num = maybeNumber;
       const statement = cells[2];
+      const description = cells[3] ?? '';
       if (!statement) continue;
-      rows.push({ num, statement });
+      rows.push({ num, statement, description });
     }
     return rows.sort((a, b) => a.num - b.num);
   }
@@ -130,18 +91,18 @@
   <form class="card" on:submit|preventDefault={handleSubmit}>
 
     <div class="questions">
-      {#each questions as { num, statement }}
+      {#each questions as { num, statement, description }}
         <fieldset class="question" aria-labelledby={`q${num}-label`}>
           <div class="q-head">
             <div class="q-num">Question {num}</div>
             <p class="q-text" id={`q${num}-label`}>{statement}</p>
-            <p class="q-desc">{DESCRIPTIONS[num]}</p>
+            <p class="q-desc">{description}</p>
           </div>
           <div class="q-options">
             {#each [1,2,3,4,5] as v}
               {@const scaleLabels = ['Never or very rarely true', 'Rarely true', 'Sometimes true', 'Often true', 'Very often or always true']}
               {@const isSelected = answers.get(num) === v}
-              <label class="option {isSelected ? 'selected' : ''}" on:click={() => selectOption(num, v)}>
+              <label class="option {isSelected ? 'selected' : ''}">
                 <input 
                   type="radio" 
                   name={`q${num}`} 

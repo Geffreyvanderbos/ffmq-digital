@@ -1,41 +1,41 @@
-| \# | Statement | Rating (1-5) |
+| \# | Statement | Description |
 | :-- | :-- | :-- |
-| 1 | When I’m walking, I deliberately notice the sensations of my body moving. | 1 2 3 4 5 |
-| 2 | I’m good at finding words to describe my feelings. | 1 2 3 4 5 |
-| 3 | I criticize myself for having irrational or inappropriate emotions. | 1 2 3 4 5 |
-| 4 | I perceive my feelings and emotions without having to react to them. | 1 2 3 4 5 |
-| 5 | I pay attention to what’s going on around me. | 1 2 3 4 5 |
-| 6 | I find it difficult to stay focused on what’s happening in the present. | 1 2 3 4 5 |
-| 7 | I can easily put my beliefs, opinions, and expectations into words. | 1 2 3 4 5 |
-| 8 | I don’t pay attention to what I’m doing because I’m daydreaming, worrying, or distracted. | 1 2 3 4 5 |
-| 9 | I watch my feelings without getting lost in them. | 1 2 3 4 5 |
-| 10 | I tell myself I shouldn’t be feeling the way I’m feeling. | 1 2 3 4 5 |
-| 11 | I notice how foods and drinks affect my thoughts, bodily sensations, and emotions. | 1 2 3 4 5 |
-| 12 | It’s hard for me to find the words to describe what I’m thinking. | 1 2 3 4 5 |
-| 13 | When I get upset, I usually recognize what I am feeling. | 1 2 3 4 5 |
-| 14 | I am easily distracted. | 1 2 3 4 5 |
-| 15 | I blur out the sounds and sights of what’s going on. | 1 2 3 4 5 |
-| 16 | My natural tendency is to put my experiences into words. | 1 2 3 4 5 |
-| 17 | I am quick to judge my thoughts and feelings. | 1 2 3 4 5 |
-| 18 | I find myself doing things without paying attention. | 1 2 3 4 5 |
-| 19 | I do jobs or tasks automatically without being aware of what I’m doing. | 1 2 3 4 5 |
-| 20 | When I have distressing thoughts or images, I just notice them and let them go. | 1 2 3 4 5 |
-| 21 | I pay attention to how my emotions affect my thoughts and behavior. | 1 2 3 4 5 |
-| 22 | I can usually describe how I feel at the moment in considerable detail. | 1 2 3 4 5 |
-| 23 | I criticize myself for having irrational or inappropriate emotions. | 1 2 3 4 5 |
-| 24 | I notice the smells and aromas of things. | 1 2 3 4 5 |
-| 25 | I find it difficult to stay focused on what’s happening in the present. | 1 2 3 4 5 |
-| 26 | I watch my feelings without getting carried away by them. | 1 2 3 4 5 |
-| 27 | I notice changes in my body, like whether my breathing slows down or speeds up. | 1 2 3 4 5 |
-| 28 | I tell myself I shouldn’t be feeling the way I’m feeling. | 1 2 3 4 5 |
-| 29 | I am aware of what thoughts are passing through my mind. | 1 2 3 4 5 |
-| 30 | When I have distressing thoughts or images, I judge myself as good or bad depending on them. | 1 2 3 4 5 |
-| 31 | I pay attention to the sensations of my body when I am moving. | 1 2 3 4 5 |
-| 32 | I feel that I can describe how I am feeling. | 1 2 3 4 5 |
-| 33 | When I get upset, I usually recognize what I am feeling. | 1 2 3 4 5 |
-| 34 | I find it hard to focus on what’s happening in the present. | 1 2 3 4 5 |
-| 35 | I accept my thoughts and feelings without judging them. | 1 2 3 4 5 |
-| 36 | I pay attention to what’s happening around me. | 1 2 3 4 5 |
-| 37 | I notice the sights, sounds, and smells around me. | 1 2 3 4 5 |
-| 38 | I find it hard to describe my feelings. | 1 2 3 4 5 |
-| 39 | I tell myself I shouldn’t be feeling the way I’m feeling. | 1 2 3 4 5 |
+| 1 | When I’m walking, I deliberately notice the sensations of my body moving. | Invites you to notice concrete bodily sensations (pressure, contact, temperature, muscle activation) while walking. Think heels and toes, joint angles, balance shifts, air on skin—staying with raw sensation rather than commentary. |
+| 2 | I’m good at finding words to describe my feelings. | Assesses emotional vocabulary and precision. Can you move beyond broad labels (good/bad) to nuanced terms (disappointed vs. sad vs. resigned) and articulate intensity, triggers, and context? |
+| 3 | I criticize myself for having irrational or inappropriate emotions. | Probes secondary judgment about emotions—seeing them as irrational/inappropriate and criticizing yourself for having them. The intention is to detect a punitive stance toward inner experience. |
+| 4 | I perceive my feelings and emotions without having to react to them. | Targets nonreactivity: perceiving feelings as transient events without needing to fix, suppress, or amplify them. Can you allow an urge or emotion to be present without immediately acting? |
+| 5 | When I do things, my mind wanders off and I’m easily distracted. | Measures acting-with-awareness versus autopilot. Mind wandering during tasks suggests reduced moment-to-moment contact with what you’re doing (sensations, intentions, and actions). |
+| 6 | When I take a shower or bath, I stay alert to the sensations of water on my body. | Checks sensory contact in everyday routines. Can you feel temperature, pressure, flow, and texture of water on the skin without drifting into thought? |
+| 7 | I can easily put my beliefs, opinions, and expectations into words. | Looks at the ability to translate inner beliefs/opinions into clear language—organizing experience into shareable, coherent statements. |
+| 8 | I don’t pay attention to what I’m doing because I’m daydreaming, worrying, or otherwise distracted. | Captures inattention caused by mental time-travel (worry, rumination, fantasy). The focus is on noticing when attention leaves the task and the body. |
+| 9 | I watch my feelings without getting lost in them. | Assesses the capacity to witness feelings without fusing with them. You can notice sadness/anger as an experience occurring in awareness, not as your entire identity. |
+| 10 | I tell myself I shouldn’t be feeling the way I’m feeling. | Surfaces judgment of emotion itself (meta-judgment). The intention is to see whether you label certain feelings as unacceptable and pressure yourself not to feel them. |
+| 11 | I notice how foods and drinks affect my thoughts, bodily sensations, and emotions. | Examines interoceptive and affective consequences of consumption. Do you notice shifts in energy, mood, clarity, tension, or heart rate after foods/drinks? |
+| 12 | It’s hard for me to find the words to describe what I’m thinking. | Measures difficulty putting thoughts into words—accessing and naming the content/quality of thinking (speed, imagery, verbal tone, certainty). |
+| 13 | I am easily distracted. | Screens distractibility—how easily attention is pulled from the intended object (task, breath, conversation) by internal or external stimuli. |
+| 14 | I believe some of my thoughts are abnormal or bad and I shouldn’t think that way. | Explores judgment about thoughts as morally/qualitatively bad. Do you relate to certain thoughts as unacceptable rather than as passing mental events? |
+| 15 | I pay attention to sensations, such as the wind in my hair or sun on my face. | Checks openness to subtle sensory input (wind, warmth, texture). It reflects a curious, receptive stance toward raw perception in daily life. |
+| 16 | I have trouble thinking of the right words to express how I feel about things. | Assesses difficulty describing feelings under ordinary conditions—whether there’s a gap between felt experience and language generation. |
+| 17 | I make judgments about whether my thoughts are good or bad. | Targets the reflex to evaluate thoughts as good/bad. The item taps the judging dimension rather than the content of specific thoughts. |
+| 18 | I find it difficult to stay focused on what’s happening in the present. | Captures stability of attention in the present. Difficulty staying focused signals reduced awareness continuity and greater autopilot. |
+| 19 | When I have distressing thoughts or images, I “step back” and am aware of the thought or image without getting taken over by it. | Measures decentering: the ability to ‘step back’ from distressing images/thoughts, seeing them as mental events that arise and pass without takeover. |
+| 20 | I pay attention to sounds, such as clocks ticking, birds chirping, or cars passing. | Checks auditory mindfulness—discriminating layers of sound (near/far, loud/soft, continuous/intermittent) without narrating or evaluating. |
+| 21 | In difficult situations, I can pause without immediately reacting. | Assesses response inhibition and emotional regulation: pausing in difficulty to allow wiser action rather than reflexive reaction. |
+| 22 | When I have a sensation in my body, it’s difficult for me to describe it because I can’t find the right words. | Explores interoceptive language—can you identify and name bodily sensations (tightness, flutter, pressure, heat) with some specificity? |
+| 23 | It seems I am “running on automatic” without much awareness of what I’m doing. | Screens behavioral autopilot—doing without noticing intentions, transitions, or sensations. Reflects low present-moment contact during routine behavior. |
+| 24 | When I have distressing thoughts or images, I feel calm soon after. | Targets recovery and nonreactivity after distressing mentation—how quickly equanimity returns once a difficult thought/image appears. |
+| 25 | I tell myself that I shouldn’t be thinking the way I’m thinking. | Assesses judgment about thinking itself—pressuring yourself not to have certain thoughts, which often amplifies distress and reduces acceptance. |
+| 26 | I notice the smells and aromas of things. | Checks olfactory awareness—subtle noticing of aromas in ordinary contexts (food, outdoors, environments) without evaluation. |
+| 27 | Even when I’m feeling terribly upset, I can find a way to put it into words. | Measures access to language for emotion under load. Even when upset, can you label and communicate what you feel and need? |
+| 28 | I rush through activities without being really attentive to them. | Captures speed-over-awareness tendency: rushing diminishes sensory contact and intentionality; mindfulness favors thorough, deliberate engagement. |
+| 29 | When I have distressing thoughts or images I am able just to notice them without reacting. | Assesses the ability to allow distressing thoughts/images to be present while choosing nonreactive, values-guided behavior. |
+| 30 | I think some of my emotions are bad or inappropriate and I shouldn’t feel them. | Surfaces moral/aesthetic judgment of emotions (good/bad). Mindfulness emphasizes accepting emotions as signals, not faults. |
+| 31 | I notice visual elements in art or nature, such as colors, shapes, textures, or patterns of light and shadow. | Checks visual mindfulness—rich noticing of color, line, texture, light/shadow in art/nature, indicating receptive perceptual detail. |
+| 32 | My natural tendency is to put my experiences into words. | Assesses narrative tendency—readiness to represent experience in words, building coherent meaning without losing contact with raw data. |
+| 33 | When I have distressing thoughts or images, I just notice them and let them go. | Measures letting-go ability—recognizing thoughts/images and allowing them to pass without elaboration or struggle. |
+| 34 | I do jobs or tasks automatically without being aware of what I’m doing. | Screens automaticity in action—tasks completed with minimal awareness of steps, sensations, and intentions. |
+| 35 | When I have distressing thoughts or images, I judge myself as good or bad, depending what the thought/image is about. | Explores self-evaluation tied to thought content. Do you judge yourself as good/bad because of having certain thoughts/images? |
+| 36 | I pay attention to how my emotions affect my thoughts and behavior. | Assesses insight into how emotions bias cognition and behavior—tracking shifts in attention, memory, choices when emotions arise. |
+| 37 | I can usually describe how I feel at the moment in considerable detail. | Checks emotional granularity and detail in the present moment—naming blends, intensities, and bodily correlates of feeling states. |
+| 38 | I find myself doing things without paying attention. | Captures acting without awareness—only later realizing you’ve been on autopilot. Overlaps with attentional stability in daily tasks. |
+| 39 | I disapprove of myself when I have irrational ideas. | Targets disapproval toward having ‘irrational’ ideas—self-criticism for mental content rather than noticing it as transient activity. |

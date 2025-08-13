@@ -21,7 +21,7 @@
   const WEBHOOK_URL = 'http://192.168.12.200:5678/webhook/mindfulness';
 
   // Debug mode - set to true for testing with random answers
-  const DEBUG_MODE = true;
+  const DEBUG_MODE = false;
 
   // Generate random test answers for debugging
   function generateTestAnswers() {

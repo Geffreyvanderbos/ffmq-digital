@@ -17,6 +17,78 @@
     'Nonreactivity to Inner Experience': [4, 9, 19, 21, 24, 29, 33]
   };
 
+  // Webhook configuration for N8N
+  const WEBHOOK_URL = 'http://192.168.12.200:5678/webhook/mindfulness';
+
+  // Debug mode - set to true for testing with random answers
+  const DEBUG_MODE = false;
+
+  // Generate random test answers for debugging
+  function generateTestAnswers() {
+    const testAnswers = new Map();
+    for (let i = 1; i <= 39; i++) {
+      testAnswers.set(i, Math.floor(Math.random() * 5) + 1); // Random 1-5
+    }
+    return testAnswers;
+  }
+
+  // Refresh test answers for new random data
+  function refreshTestAnswers() {
+    if (DEBUG_MODE) {
+      answers = generateTestAnswers();
+      answers = answers; // trigger reactivity
+    }
+  }
+
+  // Helper function to convert Map to plain object
+  function toObj(map) {
+    return Object.fromEntries([...map.entries()].map(([k, v]) => [String(k), v]));
+  }
+
+  // Send data to N8N webhook
+  async function sendToWebhook(payload) {
+    try {
+      webhookStatus = null; // Reset status
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      
+      if (response.ok) {
+        webhookStatus = 'success';
+      } else {
+        webhookStatus = 'error';
+      }
+    } catch (err) {
+      console.error('Webhook send failed:', err);
+      webhookStatus = 'error';
+    }
+  }
+
+  // Send results to webhook (separate from scoring)
+  async function sendResultsToWebhook() {
+    if (!results) return;
+    
+    // Recalculate adjusted answers from current answers
+    const adjusted = new Map();
+    for (const [num, v] of answers.entries()) {
+      const adj = REVERSE_ITEMS.has(num) ? reverseScore(v) : v;
+      adjusted.set(num, adj);
+    }
+    
+    const payload = {
+      session_id: (globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`),
+      timestamp: new Date().toISOString(),
+      answers_raw: toObj(answers),
+      answers_adjusted: toObj(adjusted),
+      facet_scores: results.facetScores,
+      total_score: results.total
+    };
+
+    await sendToWebhook(payload);
+  }
+
   // Descriptions are now stored in ffmq.md alongside each question
 
   function parseQuestionsFromMarkdown(markdownText) {
@@ -41,6 +113,12 @@
   const questions = parseQuestionsFromMarkdown(md);
   let results = null;
   let answers = new Map();
+  let webhookStatus = null; // 'success', 'error', or null
+  
+  // Initialize with test answers if debug mode is enabled
+  if (DEBUG_MODE) {
+    answers = generateTestAnswers();
+  }
   
   function selectOption(questionNum, value) {
     answers.set(questionNum, value);
@@ -60,7 +138,7 @@
     }
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     const form = event.currentTarget;
     const fd = new FormData(form);
     const answers = new Map();
@@ -89,6 +167,7 @@
     }
 
     results = { total, facetScores };
+    
     setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 0);
   }
 </script>
@@ -97,6 +176,12 @@
   <header class="page-header">
     <h1>Five Facet Mindfulness Questionnaire (FFMQ-39)</h1>
     <p class="subtitle">Rate each statement from 1 (Never/rarely true) to 5 (Very often/always true).</p>
+    {#if DEBUG_MODE}
+      <div class="debug-notice">
+        🧪 DEBUG MODE: Test answers are pre-filled. Submit to test webhook.
+        <button class="refresh-btn" on:click={refreshTestAnswers}>Refresh Answers</button>
+      </div>
+    {/if}
   </header>
 
   <form class="card" on:submit|preventDefault={handleSubmit}>
@@ -132,7 +217,8 @@
     </div>
 
     <div class="form-actions">
-      <button class="btn" type="submit">Submit and Score</button>
+      <button class="btn" type="submit">📊 Score Questionnaire</button>
+      <p class="form-note">This will calculate your scores. Use the "Save Results" button below to store them in the database.</p>
     </div>
   </form>
 
@@ -155,6 +241,25 @@
               <p><strong>Score:</strong> {score}</p>
             </div>
           {/each}
+        </div>
+        
+        <!-- Webhook Section -->
+        <div class="webhook-section">
+          <h4>Save Results</h4>
+          <p>Click the button below to save your results to the database:</p>
+          <button class="btn webhook-btn" on:click={sendResultsToWebhook} disabled={webhookStatus === 'success'}>
+            {webhookStatus === 'success' ? '✅ Results Saved!' : '💾 Save Results to Database'}
+          </button>
+          
+          {#if webhookStatus === 'success'}
+            <div class="webhook-success">
+              <p>✅ Your results have been successfully saved!</p>
+            </div>
+          {:else if webhookStatus === 'error'}
+            <div class="webhook-error">
+              <p>❌ Failed to save results. Please try again.</p>
+            </div>
+          {/if}
         </div>
       </div>
     </section>
